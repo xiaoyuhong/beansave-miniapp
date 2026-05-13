@@ -42,11 +42,8 @@ export default function Orders() {
   const filteredOrders = orders.filter((o) => o.status === activeTab)
 
   const handleShowQrCode = (order: Order) => {
-    Taro.showModal({
-      title: '核销码',
-      content: `订单号：${order.orderNo}\n核销码：${order.verifyCode}\n\n请出示此码给店员扫描`,
-      showCancel: false,
-      confirmText: '知道了'
+    Taro.navigateTo({
+      url: `/pages/qrcode/index?verifyCode=${order.verifyCode}&orderNo=${order.orderNo}&productName=${encodeURIComponent(order.product.name)}&expiredAt=${order.expiredAt}`
     })
   }
 

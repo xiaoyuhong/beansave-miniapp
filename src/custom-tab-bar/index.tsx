@@ -4,29 +4,25 @@ import { useState } from 'react'
 import { useUserStore } from '@/store/useUserStore'
 import styles from './index.module.scss'
 
-// C端 TabBar 配置
 const USER_TABS = [
-  { pagePath: '/pages/home/index', text: '首页', icon: '🏠', activeIcon: '🏠' },
-  { pagePath: '/pages/menu/index', text: '点咖啡', icon: '☕', activeIcon: '☕' },
-  { pagePath: '/pages/orders/index', text: '订单', icon: '📋', activeIcon: '📋' },
-  { pagePath: '/pages/user/index', text: '我的', icon: '👤', activeIcon: '👤' }
+  { pagePath: '/pages/home/index', text: '首页', icon: '🏠' },
+  { pagePath: '/pages/menu/index', text: '点咖啡', icon: '☕' },
+  { pagePath: '/pages/orders/index', text: '订单', icon: '📋' },
+  { pagePath: '/pages/user/index', text: '我的', icon: '👤' }
 ]
 
-// 商家端 TabBar 配置
 const ADMIN_TABS = [
-  { pagePath: '/pages/merchant/publish/index', text: '发布余量', icon: '➕', activeIcon: '➕' },
-  { pagePath: '/pages/merchant/scan/index', text: '扫码核销', icon: '📷', activeIcon: '📷' },
-  { pagePath: '/pages/merchant/stats/index', text: '统计', icon: '📊', activeIcon: '📊' },
-  { pagePath: '/pages/user/index', text: '我的', icon: '👤', activeIcon: '👤' }
+  { pagePath: '/pages/merchant/publish/index', text: '发布余量', icon: '➕' },
+  { pagePath: '/pages/merchant/scan/index', text: '扫码核销', icon: '📷' },
+  { pagePath: '/pages/merchant/stats/index', text: '统计', icon: '📊' },
+  { pagePath: '/pages/user/index', text: '我的', icon: '👤' }
 ]
 
 export default function CustomTabBar() {
   const { role } = useUserStore()
   const tabs = role === 'admin' ? ADMIN_TABS : USER_TABS
-
   const [selected, setSelected] = useState(0)
 
-  // 每次页面显示时同步高亮
   useDidShow(() => {
     const pages = Taro.getCurrentPages()
     const currentPage = pages[pages.length - 1]
@@ -52,7 +48,6 @@ export default function CustomTabBar() {
         >
           <Text className={styles.tabIcon}>{tab.icon}</Text>
           <Text className={styles.tabText}>{tab.text}</Text>
-          {/* 商家端标识 */}
           {role === 'admin' && index === 0 && (
             <View className={styles.adminBadge}>
               <Text className={styles.adminBadgeText}>商家</Text>

@@ -4,8 +4,7 @@ const KEYS = {
   USER_INFO: 'bs_user_info',
   TOKEN: 'bs_token',
   ORDERS: 'bs_orders',
-  COUPONS: 'bs_coupons',
-  TODAY_PUBLISH: 'bs_today_publish'  // 当日发布数据
+  COUPONS: 'bs_coupons'
 } as const
 
 export function saveStorage<T>(key: string, value: T): void {
@@ -33,10 +32,6 @@ export function removeStorage(key: string): void {
   } catch {
     console.warn(`[Storage] 删除失败: ${key}`)
   }
-}
-
-export function clearAllStorage(): void {
-  Object.values(KEYS).forEach(removeStorage)
 }
 
 export { KEYS }

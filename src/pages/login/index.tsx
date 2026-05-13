@@ -19,17 +19,11 @@ export default function Login() {
     if (loading) return
     setLoading(true)
     try {
-      let code = 'mock_code'
-      // 只有生产环境且有真实 appid 时才调用微信登录
-      if (APP_ENV === 'production' && typeof wx !== 'undefined') {
-        try {
-          const res = await Taro.login()
-          code = res.code
-        } catch {
-          // 登录失败降级为 mock
-          code = 'mock_code'
-        }
-      }
+      // TODO: 后端就绪后取消注释，使用真实微信登录
+      // const res = await Taro.login()
+      // const code = res.code
+      const code = 'mock_code'
+
       const userInfo = await wxLogin(code, role)
       setUserInfo(userInfo)
       if (userInfo.role === 'admin') {

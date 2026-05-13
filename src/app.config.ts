@@ -5,6 +5,7 @@ export default defineAppConfig({
     'pages/menu/index',
     'pages/order-confirm/index',
     'pages/orders/index',
+    'pages/qrcode/index',
     'pages/user/index',
     'pages/merchant/publish/index',
     'pages/merchant/scan/index',

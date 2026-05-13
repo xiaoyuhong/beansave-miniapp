@@ -9,7 +9,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 export function isSaleTime(): boolean {
   const now = dayjs()
   const start = dayjs().hour(15).minute(0).second(0)
-  const end = dayjs().hour(20).minute(0).second(0)
+  const end = dayjs().hour(23).minute(59).second(0)
   return now.isAfter(start) && now.isBefore(end)
 }
 

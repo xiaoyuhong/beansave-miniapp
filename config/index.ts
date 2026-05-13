@@ -15,13 +15,8 @@ export default defineConfig<'vite'>({
   outputRoot: 'dist',
   plugins: ['@tarojs/plugin-platform-weapp'],
   defineConstants: {
-    // Mock 模式下使用本地 mock 数据，不需要真实 API
-    API_BASE_URL: JSON.stringify(process.env.NODE_ENV === 'production'
-      ? 'https://api.beansave.com'
-      : 'http://localhost:3000'),  // 开发环境使用本地地址（实际不会调用，因为有 IS_MOCK）
-    APP_ENV: JSON.stringify(process.env.NODE_ENV === 'production'
-      ? 'production'
-      : 'development')
+    API_BASE_URL: JSON.stringify('https://api.beansave.com'),
+    APP_ENV: JSON.stringify(process.env.NODE_ENV === 'production' ? 'production' : 'development')
   },
   copy: {
     patterns: [],

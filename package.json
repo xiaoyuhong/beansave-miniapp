@@ -5,9 +5,7 @@
   "description": "BeanSave 咖啡余量小程序 - Taro 4 + React 18 + TypeScript + NutUI + Zustand",
   "scripts": {
     "dev:weapp": "taro build --type weapp --watch",
-    "dev:weapp:real": "cross-env ENABLE_MOCK=false taro build --type weapp --watch",
     "build:weapp": "taro build --type weapp",
-    "build:weapp:prod": "cross-env NODE_ENV=production taro build --type weapp",
     "dev:h5": "taro build --type h5 --watch",
     "build:h5": "taro build --type h5",
     "lint": "eslint src --ext .ts,.tsx",
@@ -30,6 +28,7 @@
     "@tarojs/shared": "4.2.0",
     "@tarojs/taro": "4.2.0",
     "dayjs": "^1.11.20",
+    "qrcode-generator": "^2.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "zustand": "^4.5.2"
@@ -47,7 +46,6 @@
     "@typescript-eslint/parser": "^7.0.0",
     "@vitejs/plugin-react": "^4.3.0",
     "babel-preset-taro": "^4.2.0",
-    "cross-env": "^7.0.3",
     "eslint": "8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",

@@ -89,7 +89,6 @@ export async function publishProducts(
       }
     })
 
-    console.log('Mock: 发布余量成功', items)
     return
   }
   return request('/merchant/publish', { method: 'POST', data: { items } })

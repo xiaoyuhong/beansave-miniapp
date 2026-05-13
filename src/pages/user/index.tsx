@@ -52,7 +52,7 @@ export default function User() {
     })
   }
 
-  const handleGoOrders = (status?: string) => {
+  const handleGoOrders = () => {
     Taro.switchTab({ url: '/pages/orders/index' })
   }
 

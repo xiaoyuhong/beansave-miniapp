@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { UserInfo, UserRole } from '@/types'
-import { saveStorage, loadStorage, removeStorage, clearAllStorage, KEYS } from '@/utils/storage'
+import { saveStorage, loadStorage, removeStorage, KEYS } from '@/utils/storage'
 
 interface UserState {
   userInfo: UserInfo | null
@@ -8,9 +8,8 @@ interface UserState {
   role: UserRole
   isLoggedIn: boolean
   setUserInfo: (userInfo: UserInfo) => void
-  setToken: (token: string) => void
   logout: () => void
-  restoreFromStorage: () => boolean  // 从本地存储恢复登录态，返回是否成功
+  restoreFromStorage: () => boolean
 }
 
 export const useUserStore = create<UserState>((set) => ({
@@ -20,7 +19,6 @@ export const useUserStore = create<UserState>((set) => ({
   isLoggedIn: false,
 
   setUserInfo: (userInfo) => {
-    // 持久化到本地
     saveStorage(KEYS.USER_INFO, userInfo)
     saveStorage(KEYS.TOKEN, userInfo.token)
     set({
@@ -31,13 +29,7 @@ export const useUserStore = create<UserState>((set) => ({
     })
   },
 
-  setToken: (token) => {
-    saveStorage(KEYS.TOKEN, token)
-    set({ token })
-  },
-
   logout: () => {
-    // 清除本地存储
     removeStorage(KEYS.USER_INFO)
     removeStorage(KEYS.TOKEN)
     removeStorage(KEYS.ORDERS)
@@ -54,12 +46,7 @@ export const useUserStore = create<UserState>((set) => ({
     const userInfo = loadStorage<UserInfo>(KEYS.USER_INFO)
     const token = loadStorage<string>(KEYS.TOKEN)
     if (userInfo && token) {
-      set({
-        userInfo,
-        token,
-        role: userInfo.role,
-        isLoggedIn: true
-      })
+      set({ userInfo, token, role: userInfo.role, isLoggedIn: true })
       return true
     }
     return false
