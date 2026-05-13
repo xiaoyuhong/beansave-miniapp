@@ -1,0 +1,211 @@
+$color-primary: #6F4E37;
+$color-primary-light: #A0785A;
+$color-white: #ffffff;
+$color-bg: #f5f5f5;
+$color-text-primary: #333333;
+$color-text-secondary: #666666;
+$color-text-placeholder: #999999;
+$color-border: #eeeeee;
+
+.container {
+  min-height: 100vh;
+  background: $color-bg;
+}
+
+.noPermission {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.noPermissionText {
+  font-size: 32px;
+  color: $color-text-placeholder;
+}
+
+// 日期标题
+.dateHeader {
+  background: $color-white;
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-border;
+}
+
+.dateText {
+  font-size: 28px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.refreshBtn {
+  font-size: 26px;
+  color: $color-primary;
+}
+
+// 加载
+.loadingWrap {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.loadingText {
+  font-size: 28px;
+  color: $color-text-placeholder;
+}
+
+// 核心数据
+.summaryRow {
+  display: flex;
+  gap: 16px;
+  padding: 24px 24px 0;
+}
+
+.summaryCard {
+  flex: 1;
+  background: $color-white;
+  border-radius: 20px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.summaryValue {
+  font-size: 56px;
+  font-weight: 700;
+  color: $color-text-primary;
+}
+
+.summaryValuePrimary {
+  color: $color-primary;
+}
+
+.summaryLabel {
+  font-size: 24px;
+  color: $color-text-placeholder;
+}
+
+// 通用区块
+.section {
+  background: $color-white;
+  margin: 16px 24px 0;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.sectionTitle {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 24px;
+}
+
+// 排行榜
+.rankItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.rankLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.rankNo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: $color-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rankNo1 { background: #FFD700; }
+.rankNo2 { background: #C0C0C0; }
+.rankNo3 { background: #CD7F32; }
+
+.rankNoText {
+  font-size: 24px;
+  font-weight: 700;
+  color: $color-white;
+
+  .rankNo:not(.rankNo1):not(.rankNo2):not(.rankNo3) & {
+    color: $color-text-placeholder;
+  }
+}
+
+.rankName {
+  font-size: 26px;
+  color: $color-text-primary;
+  font-weight: 500;
+}
+
+.rankRight {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rankBar {
+  flex: 1;
+  height: 16px;
+  background: $color-bg;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rankBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #6F4E37, #A0785A);
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.rankSold {
+  font-size: 24px;
+  color: $color-text-secondary;
+  width: 72px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+// 提示卡片
+.tipCard {
+  background: #FFF8E1;
+  margin: 16px 24px 0;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tipText {
+  font-size: 24px;
+  color: #795548;
+  line-height: 1.6;
+}
+
+.bottomPadding {
+  height: 120px;
+}

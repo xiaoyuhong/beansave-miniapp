@@ -1,0 +1,297 @@
+$color-primary: #6F4E37;
+$color-primary-light: #A0785A;
+$color-white: #ffffff;
+$color-bg: #f5f5f5;
+$color-text-primary: #333333;
+$color-text-secondary: #666666;
+$color-text-placeholder: #999999;
+$color-border: #eeeeee;
+$color-danger: #F44336;
+
+.container {
+  min-height: 100vh;
+  background: $color-bg;
+  padding-bottom: 160px;
+}
+
+.noPermission {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.noPermissionText {
+  font-size: 32px;
+  color: $color-text-placeholder;
+}
+
+// 区块
+.section {
+  background: $color-white;
+  margin: 24px 24px 0;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 30px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.sectionCount {
+  font-size: 24px;
+  color: $color-text-placeholder;
+}
+
+// 添加触发器
+.addTrigger {
+  border: 2px dashed $color-primary;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.addTriggerIcon {
+  font-size: 36px;
+}
+
+.addTriggerText {
+  font-size: 28px;
+  color: $color-primary;
+  font-weight: 600;
+}
+
+// 添加表单
+.addForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formLabel {
+  font-size: 24px;
+  color: $color-text-secondary;
+}
+
+.inputWrap {
+  background: $color-bg;
+  border-radius: 12px;
+  border: 2px solid $color-border;
+  padding: 0 16px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  font-size: 28px !important;
+  color: $color-text-primary !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+// 价格预览
+.pricePreview {
+  background: #f9f3ee;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.pricePreviewText {
+  font-size: 24px;
+  color: $color-primary;
+}
+
+// 表单按钮
+.formBtns {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.cancelBtn {
+  flex: 1;
+  height: 80px;
+  border-radius: 40px;
+  border: 2px solid $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancelBtnText {
+  font-size: 28px;
+  color: $color-text-secondary;
+}
+
+.confirmBtn {
+  flex: 2;
+  height: 80px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #6F4E37, #A0785A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(111, 78, 55, 0.3);
+}
+
+.confirmBtnText {
+  font-size: 28px;
+  color: $color-white;
+  font-weight: 600;
+}
+
+// 温度按钮（添加表单用）
+.tempBtns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.tempBtn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: $color-bg;
+  border: 2px solid $color-border;
+}
+
+.tempBtnActive {
+  background: #fdf8f5;
+  border-color: $color-primary;
+}
+
+.tempBtnText {
+  font-size: 24px;
+  color: $color-text-secondary;
+
+  .tempBtnActive & {
+    color: $color-primary;
+    font-weight: 600;
+  }
+}
+
+// 温度标签（品类列表用，点击可切换）
+.tempRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tempTag {
+  padding: 6px 14px;
+  border-radius: 16px;
+  background: $color-bg;
+  border: 1px solid $color-border;
+}
+
+.tempTagActive {
+  background: #fdf8f5;
+  border-color: $color-primary;
+}
+
+.tempTagText {
+  font-size: 22px;
+  color: $color-text-placeholder;
+
+  .tempTagActive & {
+    color: $color-primary;
+    font-weight: 600;
+  }
+}
+
+// 品类列表
+.productItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.productLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.productEmoji {
+  font-size: 40px;
+}
+
+.productInfo {
+  flex: 1;
+}
+
+.productNameRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.productName {
+  font-size: 28px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.customTag {
+  background: #f9f3ee;
+  border-radius: 8px;
+  padding: 2px 10px;
+}
+
+.customTagText {
+  font-size: 20px;
+  color: $color-primary;
+}
+
+.productPrice {
+  font-size: 22px;
+  color: $color-text-placeholder;
+}
+
+// 删除按钮
+.deleteBtn {
+  padding: 10px 20px;
+  border: 1px solid $color-danger;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.deleteBtnText {
+  font-size: 22px;
+  color: $color-danger;
+}
+
+.bottomPadding {
+  height: 40px;
+}

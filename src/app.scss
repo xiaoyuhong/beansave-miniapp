@@ -1,0 +1,58 @@
+// 品牌色：咖啡棕
+$color-primary: #6f4e37;
+$color-primary-light: #a0785a;
+$color-primary-dark: #4a3728;
+
+// 功能色
+$color-success: #4caf50;
+$color-warning: #ff9800;
+$color-danger: #f44336;
+$color-info: #2196f3;
+
+// 中性色
+$color-text-primary: #333333;
+$color-text-secondary: #666666;
+$color-text-placeholder: #999999;
+$color-text-disabled: #cccccc;
+$color-border: #eeeeee;
+$color-bg: #f5f5f5;
+$color-white: #ffffff;
+
+// 间距
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 32px;
+$spacing-xl: 48px;
+
+// 圆角
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-full: 9999px;
+
+// 阴影
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+page {
+  background-color: $color-bg;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 28px;
+  color: $color-text-primary;
+  box-sizing: border-box;
+
+  // 覆盖 NutUI 全局主题色为咖啡棕
+  --nutui-color-primary: #6F4E37;
+  --nutui-color-primary-stop-1: #6F4E37;
+  --nutui-color-primary-stop-2: #A0785A;
+  --nutui-brand-color: #6F4E37;
+  --nutui-brand-color-start: #6F4E37;
+  --nutui-brand-color-end: #A0785A;
+  --nutui-range-active-color: #6F4E37;
+  --nutui-range-button-color: #6F4E37;
+}
+
+* {
+  box-sizing: border-box;
+}

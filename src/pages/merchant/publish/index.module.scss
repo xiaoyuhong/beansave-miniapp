@@ -1,0 +1,365 @@
+$color-primary: #6F4E37;
+$color-primary-light: #A0785A;
+$color-white: #ffffff;
+$color-bg: #f5f5f5;
+$color-text-primary: #333333;
+$color-text-secondary: #666666;
+$color-text-placeholder: #999999;
+$color-border: #eeeeee;
+
+.container {
+  min-height: 100vh;
+  background: $color-bg;
+  padding-bottom: 160px;  // 100px tabbar + 60px 间距
+}
+
+.noPermission {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.noPermissionText {
+  font-size: 32px;
+  color: $color-text-placeholder;
+}
+
+// 提示栏
+.tipBar {
+  background: #FFF3E0;
+  padding: 20px 32px;
+}
+
+.tipText {
+  font-size: 24px;
+  color: #795548;
+}
+
+// 添加品类按钮
+.addSection {
+  padding: 16px 24px 0;
+}
+
+.addBtn {
+  background: $color-white;
+  border: 2px dashed $color-primary;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.addBtnIcon {
+  font-size: 32px;
+}
+
+.addBtnText {
+  font-size: 28px;
+  color: $color-primary;
+  font-weight: 600;
+}
+
+// 弹窗内容
+.dialogContent {
+  padding: 16px 0;
+}
+
+.dialogField {
+  margin-bottom: 24px;
+}
+
+.dialogLabel {
+  display: block;
+  font-size: 24px;
+  color: $color-text-secondary;
+  margin-bottom: 12px;
+}
+
+.dialogTip {
+  font-size: 22px;
+  color: $color-text-placeholder;
+  display: block;
+  margin-top: 8px;
+}
+
+// 列表
+.list {
+  padding: 16px 24px 0;
+}
+
+// 库存卡片
+.stockCard {
+  background: $color-white;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.stockCardLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.productImage {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f9f3ee, #fff8f0);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.productEmoji {
+  font-size: 40px;
+}
+
+.productInfo {
+  flex: 1;
+}
+
+.productName {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 6px;
+}
+
+.productPrice {
+  font-size: 22px;
+  color: $color-text-placeholder;
+}
+
+.productPrice {
+  font-size: 22px;
+  color: $color-text-placeholder;
+}
+
+// 价格行
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.salePrice {
+  font-size: 32px;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.originalPrice {
+  font-size: 22px;
+  color: $color-text-placeholder;
+  text-decoration: line-through;
+}
+
+.discountBadge {
+  background: $color-primary;
+  border-radius: 8px;
+  padding: 2px 10px;
+}
+
+.discountBadgeText {
+  font-size: 20px;
+  color: $color-white;
+  font-weight: 600;
+}
+
+// 折扣滑块
+.sliderSection {
+  margin: 12px 0;
+  padding: 12px 16px;
+  background: #fdf8f5;
+  border-radius: 12px;
+
+  // 覆盖 NutUI Range 组件的红色主题
+  --nutui-range-active-color: #6F4E37;
+  --nutui-range-button-color: #6F4E37;
+  --nutui-brand-color: #6F4E37;
+  --nutui-brand-color-start: #6F4E37;
+  --nutui-brand-color-end: #A0785A;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sliderLabel {
+  font-size: 22px;
+  color: $color-text-secondary;
+}
+
+.sliderValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+// 温度选项
+.tempSection {
+  margin: 12px 0 0;
+}
+
+.tempLabel {
+  display: block;
+  font-size: 22px;
+  color: $color-text-secondary;
+  margin-bottom: 10px;
+}
+
+.tempBtns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tempBtn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: $color-bg;
+  border: 2px solid $color-border;
+}
+
+.tempBtnActive {
+  background: #fdf8f5;
+  border-color: $color-primary;
+}
+
+.tempBtnText {
+  font-size: 24px;
+  color: $color-text-secondary;
+
+  .tempBtnActive & {
+    color: $color-primary;
+    font-weight: 600;
+  }
+}
+
+// 库存控制
+.stockControl {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// 库存一行：快捷按钮 + 输入框
+.stockRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quickBtn {
+  width: 64px;
+  height: 56px;
+  border-radius: 12px;
+  background: $color-bg;
+  border: 2px solid $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quickBtnActive {
+  background: #fdf8f5;
+  border-color: $color-primary;
+}
+
+.quickBtnText {
+  font-size: 26px;
+  color: $color-text-secondary;
+
+  .quickBtnActive & {
+    color: $color-primary;
+    font-weight: 600;
+  }
+}
+
+// 手动输入
+.inputWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: $color-bg;
+  border-radius: 12px;
+  padding: 0 12px;
+  border: 2px solid $color-border;
+  height: 56px;
+}
+
+.stockInput {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+}
+
+.inputUnit {
+  font-size: 26px;
+  color: $color-text-secondary;
+}
+
+// 底部
+.footer {
+  margin: 24px 24px 0;
+  background: $color-white;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.footerSummary {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footerLabel {
+  font-size: 22px;
+  color: $color-text-placeholder;
+}
+
+.footerValue {
+  font-size: 40px;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #6F4E37, #A0785A);
+  border-radius: 48px;
+  padding: 0 48px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(111, 78, 55, 0.35);
+}
+
+.submitBtnLoading {
+  opacity: 0.7;
+}
+
+.submitBtnText {
+  font-size: 30px;
+  color: $color-white;
+  font-weight: 600;
+}
