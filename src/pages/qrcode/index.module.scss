@@ -1,3 +1,5 @@
+/* 变量由 config/index.ts sass.resource 自动注入，无需在此重复声明 */
+
 .container {
   min-height: 100vh;
   background: #f5f0eb;
@@ -17,6 +19,7 @@
   flex-direction: column;
   align-items: center;
   box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.08);
+  position: relative;
 }
 
 .title {
@@ -32,8 +35,9 @@
   margin-bottom: 40rpx;
 }
 
+/* ─── 二维码区域 + 四角装饰 ─────────────────────────── */
 .qrcodeWrap {
-  // 外框跟随二维码实际尺寸，加 16px 白边
+  position: relative;
   padding: 16px;
   background: #ffffff;
   border: 2rpx solid #f0e8e0;
@@ -44,6 +48,80 @@
   justify-content: center;
 }
 
+/* 四角装饰 */
+$corner-size: 32rpx;
+$corner-w: 6rpx;
+
+.cornerTL,
+.cornerTR,
+.cornerBL,
+.cornerBR {
+  position: absolute;
+  width: $corner-size;
+  height: $corner-size;
+  z-index: 1;
+}
+
+.cornerTL {
+  top: -2rpx;
+  left: -2rpx;
+  border-top: $corner-w solid $color-primary;
+  border-left: $corner-w solid $color-primary;
+  border-radius: 4rpx 0 0 0;
+}
+
+.cornerTR {
+  top: -2rpx;
+  right: -2rpx;
+  border-top: $corner-w solid $color-primary;
+  border-right: $corner-w solid $color-primary;
+  border-radius: 0 4rpx 0 0;
+}
+
+.cornerBL {
+  bottom: -2rpx;
+  left: -2rpx;
+  border-bottom: $corner-w solid $color-primary;
+  border-left: $corner-w solid $color-primary;
+  border-radius: 0 0 0 4rpx;
+}
+
+.cornerBR {
+  bottom: -2rpx;
+  right: -2rpx;
+  border-bottom: $corner-w solid $color-primary;
+  border-right: $corner-w solid $color-primary;
+  border-radius: 0 0 4rpx 0;
+}
+
+.qrcodeInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── 过期遮罩 ───────────────────────────────────────── */
+.expiredMask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.expiredMaskText {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: $color-danger;
+}
+
+/* ─── 信息区 ─────────────────────────────────────────── */
 .info {
   width: 100%;
   border-top: 1rpx solid #f0f0f0;
@@ -74,12 +152,33 @@
   word-break: break-all;
 }
 
-.infoValueWarn {
-  font-size: 26rpx;
-  color: #e67e22;
-  font-weight: 600;
+/* 倒计时 — 正常 */
+.infoValueCountdown {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: $color-primary;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2rpx;
 }
 
+/* 倒计时 — 5 分钟内预警变红 */
+.infoValueWarn {
+  color: $color-danger;
+  animation: pulse-text 1s infinite;
+}
+
+@keyframes pulse-text {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* 已过期 */
+.infoValueExpired {
+  font-size: 26rpx;
+  color: $color-text-placeholder;
+}
+
+/* ─── 返回按钮 ───────────────────────────────────────── */
 .backBtn {
   margin-top: 40rpx;
   width: 100%;

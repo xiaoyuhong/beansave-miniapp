@@ -102,7 +102,7 @@ export default function Home() {
       <View className={styles.statusCard}>
         {saleStarted ? (
           <View className={styles.statusOnSale}>
-            <Text className={styles.statusDot} />
+            <Text className={styles.statusDot} /> 
             <Text className={styles.statusText}>余量咖啡正在热卖中</Text>
             <Text className={styles.statusSub}>截止今日 20:00，先到先得</Text>
           </View>

@@ -2,6 +2,7 @@ import { defineConfig } from '@tarojs/cli'
 import path from 'path'
 
 export default defineConfig<'vite'>({
+  // 通过 sass.resource 自动向所有 SCSS 文件注入全局变量
   projectName: 'beansave-miniapp',
   date: '2024-01-01',
   designWidth: 750,
@@ -26,6 +27,10 @@ export default defineConfig<'vite'>({
   compiler: 'vite',
   alias: {
     '@': path.resolve(__dirname, '..', 'src')
+  },
+  // 自动向所有 SCSS 文件注入全局变量，无需每个文件手动声明
+  sass: {
+    resource: path.resolve(__dirname, '..', 'src/styles/_variables.scss')
   },
   mini: {
     postcss: {

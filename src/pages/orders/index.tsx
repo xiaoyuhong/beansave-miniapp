@@ -59,7 +59,10 @@ export default function Orders() {
               className={[styles.tab, activeTab === tab.status ? styles.tabActive : ''].join(' ')}
               onClick={() => setActiveTab(tab.status)}
             >
-              <Text className={styles.tabText}>{tab.label}</Text>
+              <Text className={[
+                styles.tabText,
+                activeTab === tab.status ? styles.tabTextActive : ''
+              ].join(' ')}>{tab.label}</Text>
               {count > 0 && (
                 <View className={styles.tabBadge}>
                   <Text className={styles.tabBadgeText}>{count}</Text>
@@ -101,7 +104,12 @@ export default function Orders() {
                   order.status === 'verified' ? styles.statusVerified :
                   styles.statusExpired
                 ].join(' ')}>
-                  <Text className={styles.orderStatusText}>
+                  <Text className={[
+                    styles.orderStatusText,
+                    order.status === 'pending' ? styles.orderStatusTextPending :
+                    order.status === 'verified' ? styles.orderStatusTextVerified :
+                    styles.orderStatusTextExpired
+                  ].join(' ')}>
                     {order.status === 'pending' ? '待核销' :
                      order.status === 'verified' ? '已核销' : '已过期'}
                   </Text>

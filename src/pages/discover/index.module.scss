@@ -1,0 +1,225 @@
+.container {
+  min-height: 100vh;
+  background: $color-bg;
+}
+
+// 顶部 Banner
+.banner {
+  background: linear-gradient(135deg, #6F4E37 0%, #A0785A 100%);
+  padding: 48px 32px 40px;
+  border-radius: 0 0 32px 32px;
+}
+
+.bannerTitle {
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
+  color: $color-white;
+  margin-bottom: 8px;
+}
+
+.bannerSub {
+  display: block;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+// 开抢提示条
+.saleHint {
+  margin: 20px 24px 0;
+  background: #fff8f0;
+  border: 1px solid #f0d9c0;
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.saleHintActive {
+  margin: 20px 24px 0;
+  background: linear-gradient(135deg, #6F4E37, #A0785A);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.saleHintText {
+  font-size: 26px;
+  color: $color-primary;
+
+  .saleHintActive & {
+    color: $color-white;
+  }
+}
+
+// 通用区块
+.section {
+  padding: 32px 24px 0;
+}
+
+.sectionTitle {
+  display: block;
+  font-size: 32px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 20px;
+}
+
+// 今日知识卡片
+.tipCard {
+  background: $color-white;
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.tipEmoji {
+  font-size: 56px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.tipContent {
+  flex: 1;
+}
+
+.tipTitle {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 12px;
+}
+
+.tipText {
+  display: block;
+  font-size: 26px;
+  color: $color-text-secondary;
+  line-height: 1.8;
+}
+
+// 口味测试
+.quizCard {
+  background: $color-white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.quizQuestion {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 24px;
+}
+
+.quizOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quizOption {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: $color-bg;
+  border-radius: 16px;
+  padding: 20px 24px;
+  border: 2px solid transparent;
+
+  &:active {
+    border-color: $color-primary;
+    background: #fff8f0;
+  }
+}
+
+.quizOptionEmoji {
+  font-size: 40px;
+}
+
+.quizOptionLabel {
+  flex: 1;
+  font-size: 28px;
+  color: $color-text-primary;
+}
+
+.quizOptionResult {
+  font-size: 24px;
+  color: $color-primary;
+  font-weight: 500;
+}
+
+// 分享卡片
+.shareCard {
+  background: linear-gradient(135deg, #6F4E37, #A0785A);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shareLeft {
+  flex: 1;
+}
+
+.shareTitle {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  color: $color-white;
+  margin-bottom: 8px;
+}
+
+.shareSub {
+  display: block;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.shareArrow {
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+// 咖啡百科列表
+.encyclopediaItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: $color-white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.encyclopediaEmoji {
+  font-size: 44px;
+  flex-shrink: 0;
+}
+
+.encyclopediaContent {
+  flex: 1;
+}
+
+.encyclopediaTitle {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 8px;
+}
+
+.encyclopediaText {
+  display: block;
+  font-size: 24px;
+  color: $color-text-secondary;
+  line-height: 1.7;
+}
+
+.bottomPadding {
+  height: 30px;
+}

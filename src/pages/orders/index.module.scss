@@ -1,14 +1,4 @@
-$color-primary: #6F4E37;
-$color-primary-light: #A0785A;
-$color-white: #ffffff;
-$color-bg: #f5f5f5;
-$color-text-primary: #333333;
-$color-text-secondary: #666666;
-$color-text-placeholder: #999999;
-$color-border: #eeeeee;
-$color-success: #4CAF50;
-$color-danger: #F44336;
-$color-warning: #FF9800;
+/* 变量由 config/index.ts sass.resource 自动注入，无需在此重复声明 */
 
 .container {
   min-height: 100vh;
@@ -51,11 +41,12 @@ $color-warning: #FF9800;
 .tabText {
   font-size: 28px;
   color: $color-text-placeholder;
+}
 
-  .tabActive & {
-    color: $color-primary;
-    font-weight: 600;
-  }
+// 激活状态独立类（CSS Modules 下嵌套选择器 .tabActive & 不生效）
+.tabTextActive {
+  color: $color-primary;
+  font-weight: 600;
 }
 
 .tabBadge {
@@ -166,11 +157,12 @@ $color-warning: #FF9800;
 .orderStatusText {
   font-size: 22px;
   font-weight: 600;
-
-  .statusPending & { color: $color-warning; }
-  .statusVerified & { color: $color-success; }
-  .statusExpired & { color: $color-text-placeholder; }
 }
+
+// 状态文字颜色独立类（CSS Modules 下嵌套选择器不生效）
+.orderStatusTextPending  { color: $color-warning; }
+.orderStatusTextVerified { color: $color-success; }
+.orderStatusTextExpired  { color: $color-text-placeholder; }
 
 // 商品信息
 .orderProduct {

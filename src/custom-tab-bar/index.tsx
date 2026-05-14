@@ -7,6 +7,7 @@ import styles from './index.module.scss'
 const USER_TABS = [
   { pagePath: '/pages/home/index', text: '首页', icon: '🏠' },
   { pagePath: '/pages/menu/index', text: '点咖啡', icon: '☕' },
+  { pagePath: '/pages/discover/index', text: '发现', icon: '📋' },
   { pagePath: '/pages/orders/index', text: '订单', icon: '📋' },
   { pagePath: '/pages/user/index', text: '我的', icon: '👤' }
 ]

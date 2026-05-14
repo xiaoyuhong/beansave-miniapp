@@ -7,6 +7,7 @@ export default defineAppConfig({
     'pages/orders/index',
     'pages/qrcode/index',
     'pages/user/index',
+    'pages/discover/index',
     'pages/merchant/publish/index',
     'pages/merchant/scan/index',
     'pages/merchant/stats/index',
@@ -35,6 +36,12 @@ export default defineAppConfig({
         text: '点咖啡',
         iconPath: 'assets/icons/menu.png',
         selectedIconPath: 'assets/icons/menu-active.png'
+      },
+      {
+        pagePath: 'pages/discover/index',
+        text: '发现',
+        iconPath: 'assets/icons/orders.png',
+        selectedIconPath: 'assets/icons/orders-active.png'
       },
       {
         pagePath: 'pages/orders/index',

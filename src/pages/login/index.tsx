@@ -1,7 +1,6 @@
 import { View, Text } from '@tarojs/components'
 import { useState } from 'react'
 import Taro from '@tarojs/taro'
-import { Button } from '@nutui/nutui-react-taro'
 import { wxLogin } from '@/api/user'
 import { useUserStore } from '@/store/useUserStore'
 import styles from './index.module.scss'
@@ -67,14 +66,14 @@ export default function Login() {
 
       {/* 登录按钮 */}
       <View className={styles.loginSection}>
-        <Button
-          block
-          className={styles.loginBtn}
-          loading={loading}
+        <View
+          className={[styles.loginBtn, loading ? styles.loginBtnLoading : ''].join(' ')}
           onClick={() => handleLogin('user')}
         >
-          <Text className={styles.loginBtnText}>微信一键登录</Text>
-        </Button>
+          <Text className={styles.loginBtnText}>
+            {loading ? '登录中...' : '微信一键登录'}
+          </Text>
+        </View>
         <Text className={styles.loginTip}>登录即代表同意《用户协议》和《隐私政策》</Text>
       </View>
 

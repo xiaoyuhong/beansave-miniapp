@@ -139,7 +139,10 @@ export default function Menu() {
                 ].join(' ')}
                 onClick={() => handleOrder(product)}
               >
-                <Text className={styles.orderBtnText}>
+                <Text className={[
+                  styles.orderBtnText,
+                  (!product.isAvailable || reachedLimit) ? styles.orderBtnTextDisabled : ''
+                ].join(' ')}>
                   {reachedLimit ? '已达限' : product.stock === 0 ? '售罄' : !saleStarted ? '未开售' : '下单'}
                 </Text>
               </View>
