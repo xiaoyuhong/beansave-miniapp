@@ -13,7 +13,7 @@ export interface UserInfo {
 }
 
 // 温度选项
-export type TempOption = '正常冰' | '少冰' | '不加冰' | '热'
+export type TempOption = '正常冰' | '少冰' | '不加冰' | '热' 
 
 // 咖啡商品
 export interface Product {

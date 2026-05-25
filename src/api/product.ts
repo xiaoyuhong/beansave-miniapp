@@ -8,7 +8,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 // 判断当前是否在售卖时间（15:00 - 20:00）
 export function isSaleTime(): boolean {
   const now = dayjs()
-  const start = dayjs().hour(15).minute(0).second(0)
+  const start = dayjs().hour(12).minute(0).second(0) 
   const end = dayjs().hour(23).minute(59).second(0)
   return now.isAfter(start) && now.isBefore(end)
 }
@@ -20,5 +20,5 @@ export async function getTodayProducts(): Promise<Product[]> {
     const available = isSaleTime()
     return MOCK_PRODUCTS.map((p) => ({ ...p, isAvailable: available && p.stock > 0 }))
   }
-  return request<Product[]>('/products/today')
+  return request<Product[]>('/products/today') 
 }

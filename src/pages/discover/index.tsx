@@ -1,6 +1,6 @@
 import { View, Text, ScrollView } from '@tarojs/components'
 import { useEffect } from 'react'
-import Taro, { arrayBufferToBase64, offPageNotFound } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import dayjs from 'dayjs'
 import dayOfYear from 'dayjs/plugin/dayOfYear'
 import { useUserStore } from '@/store/useUserStore'
@@ -30,70 +30,112 @@ const FLAVOR_QUIZ = [
   }
 ]
 
-export default function Discover(){
-  const {isLoggedIn}=useUserStore()
-  const saleStarted=isSaleTime()
+export default function Discover() {
+  const { isLoggedIn } = useUserStore()
+  const saleStarted = isSaleTime()
 
-  //未登录跳转
-  useEffect(()=>{
-    if(!isLoggedIn){
-      Taro.redirectTo({url:'/page/login/index'})
+  // 未登录跳转
+  useEffect(() => {
+    if (!isLoggedIn) {
+      Taro.redirectTo({ url: '/pages/login/index' })
     }
-  },[isLoggedIn])
+  }, [isLoggedIn])
 
-  //根据日期固定显示哪条知识（每天换一条）
-  const tipIndex=dayjs().dayOfYear() % COFFEE_TIPS.length
-  const todayTip= COFFEE_TIPS[tipIndex]
+  // 根据日期固定显示哪条知识（每天换一条）
+  const tipIndex = dayjs().dayOfYear() % COFFEE_TIPS.length
+  const todayTip = COFFEE_TIPS[tipIndex]
 
   const handleGoMenu = () => {
-    Taro.switchTab({url:'/pages/menu/index'})
+    Taro.switchTab({ url: '/pages/menu/index' })
   }
 
   const handleShare = () => {
-    Taro.showToast({title:'分享功能即将上线',icon:'none'})
-  }
-  
-  const handleQuizSelect=(result:string) => {
-    Taro.showToast({title:'`推荐你试试${result} ☕`',icon:'none',duration:2000})
+    Taro.showToast({ title: '分享功能即将上线 🎉', icon: 'none' })
   }
 
-  return(
+  const handleQuizSelect = (result: string) => {
+    Taro.showToast({ title: `推荐你试试${result} ☕`, icon: 'none', duration: 2000 })
+  }
+
+  return (
     <ScrollView scrollY className={styles.container}>
-      {/* 顶部Banner */}
+      {/* 顶部 Banner */}
       <View className={styles.banner}>
-        <Text  className={styles.bannerTitle}>发现好咖啡✨</Text>
-        <Text  className={styles.bannerSub}>每天一点咖啡知识，喝得更懂</Text>
+        <Text className={styles.bannerTitle}>发现好咖啡 ✨</Text>
+        <Text className={styles.bannerSub}>每天一点咖啡知识，喝得更懂</Text>
       </View>
 
       {/* 开抢倒计时提示 */}
       {!saleStarted && (
         <View className={styles.saleHint} onClick={handleGoMenu}>
-          <Text className={styles.saleHintText}>⏰ 今日余量 15:00 开抢，点击提前看菜单</Text>
+          <Text className={styles.saleHintText}>⏰ 今日余量 15:00 开抢，点击提前看菜单 →</Text>
         </View>
       )}
-      {saleStarted &&(
+      {saleStarted && (
         <View className={styles.saleHintActive} onClick={handleGoMenu}>
           <Text className={styles.saleHintText}>🔥 余量咖啡正在热卖！立即抢购 →</Text>
         </View>
       )}
 
-      {/* 今题咖啡知识 */}
+      {/* 今日咖啡知识 */}
       <View className={styles.section}>
         <Text className={styles.sectionTitle}>今日咖啡知识</Text>
         <View className={styles.tipCard}>
           <Text className={styles.tipEmoji}>{todayTip.emoji}</Text>
           <View className={styles.tipContent}>
-             <Text className={styles.tipTitle}>{todayTip.title}</Text>
-             <Text className={styles.tipText}>{todayTip.content}</Text>
+            <Text className={styles.tipTitle}>{todayTip.title}</Text>
+            <Text className={styles.tipText}>{todayTip.content}</Text>
           </View>
         </View>
       </View>
-      
+
       {/* 口味测试 */}
+      <View className={styles.section}>
+        <Text className={styles.sectionTitle}>今天喝什么？</Text>
+        <View className={styles.quizCard}>
+          <Text className={styles.quizQuestion}>{FLAVOR_QUIZ[0].question}</Text>
+          <View className={styles.quizOptions}>
+            {FLAVOR_QUIZ[0].options.map((opt) => (
+              <View
+                key={opt.label}
+                className={styles.quizOption}
+                onClick={() => handleQuizSelect(opt.result)}
+              >
+                <Text className={styles.quizOptionEmoji}>{opt.emoji}</Text>
+                <Text className={styles.quizOptionLabel}>{opt.label}</Text>
+                <Text className={styles.quizOptionResult}>{opt.result}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      </View>
+
       {/* 分享得券 */}
+      <View className={styles.section}>
+        <View className={styles.shareCard} onClick={handleShare}>
+          <View className={styles.shareLeft}>
+            <Text className={styles.shareTitle}>分享给朋友</Text>
+            <Text className={styles.shareSub}>每成功邀请 1 人，得 5 元优惠券</Text>
+          </View>
+          <Text className={styles.shareArrow}>›</Text>
+        </View>
+      </View>
+
       {/* 所有知识卡片 */}
+      <View className={styles.section}>
+        <Text className={styles.sectionTitle}>咖啡百科</Text>
+        {COFFEE_TIPS.map((tip, i) => (
+          <View key={i} className={styles.encyclopediaItem}>
+            <Text className={styles.encyclopediaEmoji}>{tip.emoji}</Text>
+            <View className={styles.encyclopediaContent}>
+              <Text className={styles.encyclopediaTitle}>{tip.title}</Text>
+              <Text className={styles.encyclopediaText}>{tip.content}</Text>
+            </View>
+          </View>
+        ))}
+      </View>
 
-
+      <View className={styles.bottomPadding} />
     </ScrollView>
   )
 }

@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { Product } from '@/types'
 
 interface ProductState {
-  products: Product[]
+  products: Product[] 
   loading: boolean
   lastFetchDate: string  // 记录最后拉取日期，避免重复请求
   setProducts: (products: Product[]) => void

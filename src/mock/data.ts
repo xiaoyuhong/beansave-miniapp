@@ -137,7 +137,7 @@ export const MOCK_COUPONS: Coupon[] = [
 ]
 
 // 店铺信息
-export const SHOP_INFO = {
+export const SHOP_INFO = { 
   name: 'BeanSave 咖啡（大学城店）',
   address: '上海市松江区文汇路 718 号（松江大学城二期）',
   phone: '400-882-1234',
